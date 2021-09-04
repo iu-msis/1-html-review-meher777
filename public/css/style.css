@@ -20,6 +20,9 @@ label{
   color :rgba(2, 2, 7, 0.815);
   font-weight: Italic;
 }
+th{
+  color :black;
+}
 
 input{
   margin-bottom: 10px;
