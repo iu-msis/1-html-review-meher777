@@ -6,7 +6,7 @@
     <title>repl.it</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script> <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div class = "container-fluid">
@@ -29,20 +29,20 @@
    </nav>
    <main>
       <div class = "row">
-             <table class = "table table-bordered table-striped table-condensed">
+             <table id="sort-table" class = "table table-bordered table-striped table-condensed">
        <thead>
-        <tr>
-          <th>Tite</th>
-          <th>Author</th>
-          <th>Year Published</th>   
-          <th>Publisher</th>    
-          <th>Page Count</th>   
-          <th>MSRP</th>   
+        <tr id = "row-header">
+          <th class="th-sm">Tite</th>
+          <th class="th-sm">Author</th>
+          <th class="th-sm">Year Published</th>   
+          <th class="th-sm">Publisher</th>    
+          <th class="th-sm">Page Count</th>   
+          <th class="th-sm">MSRP</th>   
 
         </tr>
        </thead>
-       <tbody>
-        <tr>
+       <tbody id = "row-body">
+        <tr class="active-row">
           <td> Why we Sleep </td>
           <td>Mathew Walker</td>
           <td>2014</td>
@@ -117,5 +117,10 @@
 Amy | Phone: 813-778-6267 | Fountain Park, Bloomington, 47408</footer>
     </div>
     </div>
+    <!-- javascript plug in from https://github.com/tristen/tablesort/tree/gh-pages/demo-->
+    <script src ="js/main.js"></script>
+    <script>
+      new Tablesort(document.getElementById('sort-table'));
+    </script>
   </body>
 </html>
