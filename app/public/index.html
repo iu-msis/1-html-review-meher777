@@ -6,59 +6,54 @@
     <title>repl.it</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script> <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src='tablesort.min.js'></script>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />    
   </head>
-  <body>
+  <body>    
     <div class = "container-fluid">
-   <header class = "row">
-     
-       
-   <h2>&nbsp;&nbsp;&nbsp;<img src = "" height="100px">Amy Hood</h2>
-     
-   </header>
-    <div class = "row">
-   <nav class = "navbar navbar-default">
-    
-     <ul class = " nav navbar-nav">
-    <li><a href = "index.html">About Me</a></li>
-    <li><a href = "books.html">My Favourite Books</a></li>
-    <li><a href = "communicationForm.html">Talk to Me </a></li>
-    
-     </ul>
-    </div>
-   </nav>
-   <main>
-     <div class = "row">
-       <div class = "col-lg-3 col-md-3 col-sm-12 col-xs-12">
-         <a target="_blank" href="img/AmyHood.png">
-    <img src = "img/AmyHood.png" class = "img-responsive">  </a>
-    <cite><a>https://news.microsoft.com/exec/amy-hood/</a></cite>
+        <header class = "row">   
+          <h2>&nbsp;&nbsp;&nbsp;<img src = "" height="100px">Amy Hood</h2>
+        </header>
+        <div class = "row">
+          <nav class = "navbar navbar-default">
+        
+            <ul class = " nav navbar-nav">
+              <li><a href = "index.html">About Me</a></li>
+              <li><a href = "books.html">My Favourite Books</a></li>
+              <li><a href = "communicationForm.html">Talk to Me </a></li>
+            </ul>
+          </nav>
+        </div>   
+      <main>
+        <div id = "personApp" class = "row">
+          <div class = "col-lg-3 col-md-3 col-sm-12 col-xs-12">
+              <a v-bind:href = "picture">
+                <img v-bind:src = "picture">
+              </a>
+          </div>
+          <div class = "col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <h1><strong> Hello  </strong></h1>
+                <h2><strong>Here's who I am & what I do.</strong></h2>  
+                <p class="font-weight-light">Name :{{person.name.first}} {{person.name.last}}</p>
+                <p class="font-weight-light">Country of Origin :{{person.location.country}}</p>
+                <p class="font-weight-light">Address : {{address}}  </p>
+                <p class="font-weight-light">Birthdate : {{userDob}} </p>
+                <p class="font-weight-light">Age : {{person.dob.age}} </p>
+                <p class="font-weight-light"> Email : {{person.email}} <a v-bind:href="'mailto:'+person.email"></a>  </p>
+                
+            <br>
+          </div>
+        </div>
+        <br>
+      </main>
   
-       </div>
-       <div class = "col-lg-9 col-md-9 col-sm-12 col-xs-12">
-    <h1><strong> Hello  </strong></h1>
 
-<h2><strong>Here's who I am & what I do.</strong></h2>  
- <p class="font-weight-light">Name : Amy Hood</p>
- <p class="font-weight-light">Country : USA  </p>
- <p class="font-weight-light">Birthdate : 05-08-1960 </p>
-  <p class="font-weight-light"> Email : amyhood@microsoft.com <a href="mailto:amyhood@microsoft.com">amyhood@microsoft.com</a>  </p>
-<p class="font-weight-light">Address : Redmond, USA </p>
-
-  <br>
-   <h3>I'm a problem-solver, go-getter! I love working with cross-functional teams and solving problems.  </h3>
- 
-  
-  </div>
-<br>
-</div>
-</main>
-
-<div class = "row">
-<footer> 
-Amy | Phone: 813-778-6267 | Fountain Park, Bloomington, 47408</footer>
+      <div class = "row">
+        <footer> Amy | Phone: 813-778-6267 | Fountain Park, Bloomington, 47408</footer>
+      </div>
     </div>
-    </div>
+    
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="js/main.js"></script>
+   
   </body>
 </html>
