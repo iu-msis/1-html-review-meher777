@@ -1,70 +1,106 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script> 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+    <title>Hello, world!</title>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
   </head>
-  <body>    
+  <body>
     <div class = "container-fluid">
-        <header class = "row">   
-          <h2>&nbsp;&nbsp;&nbsp;<img src = "" height="100px">Welcome!</h2>
-        </header>
-        <div class = "row">
-          <nav class = "navbar navbar-default">
-        
-            <ul class = " nav navbar-nav">
-              <li><a href = "index.html">About Me</a></li>
-              <li><a href = "books.html">My Favourite Books</a></li>
-              <li><a href = "communicationForm.html">Talk to Me </a></li>
-            </ul>
-          </nav>
-        </div>   
-      <main>
-        <div id = "personApp" class = "row">
-         
-          <br>
-          <br>
-
-          <div class = "col-lg-3 col-md-3 col-sm-12 col-xs-12">
-              <a v-bind:href = "picture">
-                <img v-bind:src = "picture">
-              </a>
-          </div>
-          <div class = "col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                <h1><strong> Hello  </strong></h1>
-                <h2><strong>Here's who I am & what I do.</strong></h2>  
-                <p class="font-weight-light">Name : {{person.name.first}} {{person.name.last}}</p>
-                <p class="font-weight-light">Country of Origin :{{person.location.country}}</p>
-                <p class="font-weight-light">Address : {{address}}  </p>
-                <p class="font-weight-light">Birthdate : {{ prettyBirthday }} </p>
-                <p class="font-weight-light">Age : {{person.dob.age}} </p>
-                <p class="font-weight-light"> Email : {{person.email}} <a v-bind:href="'mailto:'+person.email"></a>  </p>
-                
-            <br>
-          </div>
-          <form v-on:submit.prevent="fetchUserData">
-            <center><button class="btn btn-warning" type="submit">Reload</button></center>
-          </form>
-          
+   <header class = "row">
+     
        
-        </div>
-        <br>
-      </main>
-  
-
+   <h2>&nbsp;&nbsp;&nbsp;<img src = "" height="100px">My Books</h2>
+     
+   </header>
+    <div class = "row">
+   <nav class = "navbar navbar-default">
+    
+     <ul class = " nav navbar-nav">
+    <li><a href = "index.html">About Me</a></li>
+    <li><a href = "books.html">My Favourite Books</a></li>
+    <li><a href = "communicationForm.html">Talk to Me </a></li>
+    
+     </ul>
+    </div>
+   </nav>
+   <main>
       <div class = "row">
-        <footer> Amy | Phone: 813-778-6267 | Fountain Park, Bloomington, 47408</footer>
+      <div id = "offerApp" class = "row">
+       <table id="sort-table" class = "table table-bordered table-striped table-condensed">
+       <thead>
+        <tr id = "row-header">
+          <th class="th-sm">Title</th>
+          <th class="th-sm">Author</th>
+          <th class="th-sm">Year Published</th>   
+          <th class="th-sm">Publisher</th>    
+          <th class="th-sm">Page Count</th>   
+          <th class="th-sm">MSRP</th>   
+        </tr>
+       </thead>
+       <tbody id = "row-body">
+        <tr v-for="b in books">
+                <td>{{ b.title }}</td>
+                <td>{{b.author }}</td>
+                <td>{{ b.year_published }}</td>
+                <td>{{ b.publisher }}</td>
+                <td>{{b.page_count}}</td>
+                <td>{{b.MSRP}}</td>
+        </tr>
+        </tbody>
+        </table>
       </div>
     </div>
-    
-    <script src="https://unpkg.com/vue@next"></script>
-    <script src="js/main.js"></script>
-    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+        
+  
+  <div class = "row">
+    <h3> Enter New Books to the table here </h3>
+    <form>
+      <label for = "title">Title : </label>
+      <input type = "text" name = "title" id = "title" placeholder = "title">   
+      <br>
+      <label for = "Author">Author : </label>
+      <input type = "text" name = "Author" id = "Author" placeholder = "Author">  
+      <br>
+      <label for = "Year Published">Year Published : </label>
+      <input type = "text" name = "Year Published" id = "title" placeholder = "Year Published">  
+      <br>
+      <label for = "Publisher">Publisher : </label>
+      <input type = "text" name = "Publisher" id = "Publisher" placeholder = "Publisher">  
+      <br>
+      <label for = "Page Count">Page Count : </label>
+      <input type = "text" name = "Page Count" id = "Page Count" placeholder = "Page Count">  
+      <br>
+      <label for = "MSRP">MSRP : </label>
+      <input type = "text" name = "MSRP" id = "MSRP" placeholder = "MSRP">  
+      <br>
+      <input type = "submit" name = "submit" id = "submit">
+    </form>
+  </div>
+   </main>
+
    
+    </div>
+    <!-- javascript plug in from https://github.com/tristen/tablesort/tree/gh-pages/demo
+    <script src ="js/main_tablesort.js"></script>
+  <script>
+      new Tablesort(document.getElementById('sort-table'));
+    </script>-->
+  
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+    <script src="js/main.js"></script>
+    
   </body>
 </html>
